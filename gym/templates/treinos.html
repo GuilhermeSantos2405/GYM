@@ -2,60 +2,33 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %}Treinos{% endblock %}
+{% block title %}Suplementação{% endblock %}
 
 {% block conteudo %}
 <section class='section-quote'>
-<div class='container'>
-    <div class="row p-3">
-        <div class="col-md-9">
-            <img src="{% static 'media/02.jpg' %}" class="img-fluid" alt="Imagem responsiva">
-            <div class="media-body">
-                <h5 class="mt-0">Cabeçalho da mídia</h5>
-                Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-              </div>
-        </div>
-        <div class="col-md-3 text-center">
-            <div class="card text-center" style="width: 18rem;">
-                <div class="card-body">
-                    <img class='container p-1' src="{% static 'media/01.jpg' %}" alt="">
-                    <p class="card-text">Com suporte a texto embaixo, que funciona como uma introdução a um conteúdo adicional.</p>
+    <div class='container'>
+        {% for suplemento in object_list %}
+        <div class="row p-3">
+            <div class="col-md-9">
+                <img src="{{ suplemento.imagem }}" class="img-fluid" alt="Imagem responsiva">
+                <h4 class="mt-0">{{ suplemento.titulo }}</h4>
+                <div class="media-body">
+                    {{ suplemento.descricao }}
                 </div>
             </div>
-            <div class="card text-center" style="width: 18rem;">
-                <div class="card-body">
-                    <img class='container p-1' src="{% static 'media/01.jpg' %}" alt="">
-                    <p class="card-text">Com suporte a texto embaixo, que funciona como uma introdução a um conteúdo adicional.</p>
+            {% if suplemento.link_imagem %}
+                <div class="col-md-3 text-center">
+                    <div class="card" style="width: 18rem;">
+                        <a href="https://www.gsuplementos.com.br/">
+                            <img class="card-img-top"  src="{{ suplemento.link_imagem }}" alt="Imagem de capa do card"></a>
+                    </div>
                 </div>
-            </div>
+            {% endif %}
+        {% endfor %}
         </div>
     </div>
-
-      <div class="row p-3">
-        <div class="col-md-9">
-            <img src="{% static 'media/01.jpg' %}" class="img-fluid" alt="Imagem responsiva">
-            <div class="media-body">
-                <h5 class="mt-0">Cabeçalho da mídia</h5>
-                Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-              </div>
-        </div>
-        <div class="col-md-3 text-center">
-        <div class="card text-center" style="width: 18rem;">
-            <div class="card-body">
-                <img class='container p-1' src="{% static 'media/01.jpg' %}" alt="">
-                <p class="card-text">Com suporte a texto embaixo, que funciona como uma introdução a um conteúdo adicional.</p>
-            </div>
-        </div>
-        <div class="card text-center" style="width: 18rem;">
-            <div class="card-body">
-                <img class='container p-1' src="{% static 'media/01.jpg' %}" alt="">
-                <p class="card-text">Com suporte a texto embaixo, que funciona como uma introdução a um conteúdo adicional.</p>
-            </div>
-        </div>
-    </div>
-</div>
-
-</section>
+    
+    </section>
 {% endblock %}
 
 

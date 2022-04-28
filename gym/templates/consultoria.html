@@ -8,36 +8,19 @@
 <section class='section-quote'>
 <div class='container'>
     <div class='row'>
-        <div class="card-deck col-md-4 p-4 text-center">
-            <div class="card" style="width: 18rem;">
-                <img class="card-img-top" src="{% static 'media/c01.jpg' %}" alt="Imagem de capa do card">
-                <div class="card-body">
-                <h5 class="card-title">Título do card</h5>
-                <p class="card-text">Um exemplo de texto rápido para construir o título do card e fazer preencher o conteúdo do card.</p>
-                <a href="#" class="btn btn-outline-secondary">Contratar</a>
+        {% for consultor in object_list %}
+            <div class="card-deck col-md-4 p-4 text-center">
+                <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="{{ consultor.imagem }}" alt="Imagem de capa do card">
+                    <div class="card-body">
+                    <h5 class="card-title"> {{ consultor.profissao }}  </h5>
+                    <p class="card-text"><small class="text-muted"> {{ consultor.nome }} {{ consultor.sobrenome }} R${{ consultor.preco }} </small></p>
+                    <p class="card-text">{{ consultor.descricao }}</p>
+                    <a href="{% url 'formulario' consultor.pk %}" class="btn btn-outline-secondary">Contratar</a>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="card-deck col-md-4 p-4 text-center">
-            <div class="card" style="width: 18rem;">
-                <img class="card-img-top" src="{% static 'media/c01.jpg' %}" alt="Imagem de capa do card">
-                <div class="card-body">
-                <h5 class="card-title">Título do card</h5>
-                <p class="card-text">Um exemplo de texto rápido para construir o título do card e fazer preencher o conteúdo do card.</p>
-                <a href="#" class="btn btn-outline-secondary">Contratar</a>
-                </div>
-            </div>
-        </div>
-        <div class="card-deck col-md-4 p-4 text-center">
-            <div class="card" style="width: 18rem;">
-                <img class="card-img-top" src="{% static 'media/c01.jpg' %}" alt="Imagem de capa do card">
-                <div class="card-body">
-                <h5 class="card-title">Título do card</h5>
-                <p class="card-text">Um exemplo de texto rápido para construir o título do card e fazer preencher o conteúdo do card.</p>
-                <a href="#" class="btn btn-outline-secondary">Contratar</a>
-                </div>
-            </div>
-        </div>
+        {% endfor %}
     </div>
 </div>
 
