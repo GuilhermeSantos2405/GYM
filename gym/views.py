@@ -1,8 +1,12 @@
-from django.views.generic import DetailView, ListView
+from django.views.generic import DetailView, ListView, TemplateView
 from django.views.generic.edit import FormView
 
 from .forms import ConsultorForm
 from .models import Consultor, Home, Suplementacao, Treinos
+
+
+class TesteTemplateView(TemplateView):
+    template_name = 'teste.html'
 
 
 class ConsultoriaTemplateView(ListView):

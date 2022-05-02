@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block conteudo %}
+<h1>Perfil consultor </h1>
+ 
+{% for consultor in object_list %}
+
+    {{consultor.nome}}
+
+{% endfor %}
+
+{% endblock %}
+
